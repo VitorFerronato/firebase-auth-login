@@ -12,19 +12,13 @@
   </form>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
 
-export default {
-  setup() {
-    const email = ref("");
-    const password = ref("");
+const email = ref("");
+const password = ref("");
 
-    const handleSubmit = () => {
-      console.log(email.value, password.value);
-    };
-
-    return { handleSubmit, email, password };
-  },
+const handleSubmit = () => {
+  console.log(email.value, password.value);
 };
 </script>

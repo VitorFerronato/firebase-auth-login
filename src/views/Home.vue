@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div v-for="blog in blogs" :key="blog.id">
+      === {{ store.name }} ==
       <div class="blog">
         <h3>{{ blog.title }}</h3>
         <p>
@@ -19,20 +20,15 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
 
-export default {
-  setup() {
-    const blogs = ref([
-      { title: "Why Coffee is Better than Tea", id: 1 },
-      { title: "...Then I Took an Arrow in the Knee", id: 2 },
-      { title: "Mario vs Luigi, Ultimate Showdown", id: 3 },
-    ]);
+import { useAuthStore } from "@/store/index.js";
+const store = useAuthStore();
 
-    return {
-      blogs,
-    };
-  },
-};
+const blogs = ref([
+  { title: "Why Coffee is Better than Tea", id: 1 },
+  { title: "...Then I Took an Arrow in the Knee", id: 2 },
+  { title: "Mario vs Luigi, Ultimate Showdown", id: 3 },
+]);
 </script>

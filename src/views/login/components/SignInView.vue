@@ -6,6 +6,10 @@
       <InputText title="Your name" icon="ic:outline-email" />
       <InputText title="Password" icon="ic:outline-lock" />
 
+      <a href="" style="font-size: 12px" class="forgot-password"
+        >Forgot password?</a
+      >
+
       <Button title="Log in" />
     </form>
 
@@ -26,22 +30,3 @@
 import InputText from "@/components/InputText.vue";
 import Button from "@/components/Button.vue";
 </script>
-
-<style scoped>
-.card-title {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.alternative-login {
-  margin-top: 32px;
-  font-size: 12px;
-  text-align: center;
-}
-</style>

@@ -1,8 +1,13 @@
 <template>
   <div class="input-container">
     <Icon :icon="icon" class="icon" />
-    <i :class="[`fas ${icon} icon`]"></i>
-    <input type="text" :placeholder="title" class="custom-input" />
+    <input
+      v-bind="$attrs"
+      :placeholder="title"
+      @input="$emit('update:modelValue', $event.target.value)"
+      type="text"
+      class="custom-input"
+    />
   </div>
 </template>
 
@@ -39,7 +44,7 @@ defineProps({
   padding: 8px 8px 8px 32px;
   border: none;
   border-bottom: 0.7px solid gray;
-  font-size: 16px;
+  font-size: 14px;
   outline: none;
   background: none;
 }

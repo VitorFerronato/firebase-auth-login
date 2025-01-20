@@ -52,7 +52,7 @@ const linkText = computed(() => {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   gap: 5rem;
-  padding: 1rem 4rem;
+  padding: 1rem 5rem;
   background-color: white;
 }
 

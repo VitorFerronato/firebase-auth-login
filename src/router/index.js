@@ -1,29 +1,47 @@
-import { createMemoryHistory, createRouter } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
-import Home from "../views/Home.vue";
-import Signup from "../views/Signup.vue";
-import Login from "../views/Login.vue";
+import LoginView from "../views/login/LoginView.vue";
+import SignInView from "../views/login/components/SignInView.vue";
+import SignUpView from "../views/login/components/SignUpView.vue";
+import PasswordRecoveryView from "../views/login/components/PasswordRecoveryView.vue";
+import HomeView from "../views/main/HomeView.vue";
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/signup",
-    name: "Signup",
-    component: Signup,
+    path: "/home",
+    name: "home",
+    component: HomeView,
   },
   {
     path: "/login",
-    name: "Login",
-    component: Login,
+    name: "login",
+    component: LoginView,
+    children: [
+      {
+        path: "",
+        redirect: { name: "sign-in" },
+      },
+      {
+        path: "sign-in",
+        name: "sign-in",
+        component: SignInView,
+      },
+      {
+        path: "sign-up",
+        name: "sign-up",
+        component: SignUpView,
+      },
+      {
+        path: "password-recovery",
+        name: "password-recovery",
+        component: PasswordRecoveryView,
+      },
+    ],
   },
 ];
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 });
 

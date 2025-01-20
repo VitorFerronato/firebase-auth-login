@@ -2,12 +2,11 @@ import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
 import router from "./router/index";
-import { createPinia } from "pinia";
+import { Icon } from "@iconify/vue";
 
 const app = createApp(App);
-const pinia = createPinia();
 
-app.use(pinia);
+app.component("Icon", Icon);
 app.use(router);
 
 app.mount("#app");

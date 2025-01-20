@@ -1,5 +1,5 @@
 {
-  "name": "vue",
+  "name": "firebase-auth",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,9 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "core-js": "^3.40.0",
-    "path": "^0.12.7",
-    "pinia": "^2.3.0",
+    "@iconify/vue": "^4.3.0",
+    "@mdi/js": "^7.4.47",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },

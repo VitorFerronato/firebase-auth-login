@@ -24,7 +24,7 @@
       <Icon
         @click="signInWithGoogle"
         icon="logos:google-icon"
-        style="font-size: 32px; margin-right: 12px; cursor: pointer"
+        style="font-size: 32px; cursor: pointer"
       />
     </div>
   </div>
@@ -44,7 +44,6 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  sendPasswordResetEmail,
 } from "firebase/auth";
 const auth = getAuth();
 const googleProvider = new GoogleAuthProvider();
@@ -68,9 +67,5 @@ const signInWithGoogle = async () => {
   } catch (error) {
     toastify("Erro ao fazer login com Google!", "error");
   }
-};
-
-const forgotPassword = async () => {
-  await sendPasswordResetEmail(auth, email.value);
 };
 </script>

@@ -1,11 +1,12 @@
 <template>
   <div class="input-container">
     <Icon :icon="icon" class="icon" />
+
     <input
       v-bind="$attrs"
       :placeholder="title"
       @input="$emit('update:modelValue', $event.target.value)"
-      type="text"
+      :type="type"
       class="custom-input"
     />
   </div>
@@ -13,13 +14,15 @@
 
 <script setup>
 defineProps({
+  rules: String,
   title: String,
-  title: {
-    type: String,
-  },
   icon: {
     type: String,
     default: "",
+  },
+  type: {
+    type: String,
+    default: "text",
   },
 });
 </script>

@@ -1,11 +1,20 @@
 <template>
-  <button v-bind="$attrs" class="custom-button">{{ title }}</button>
+  <button
+    v-bind="$attrs"
+    :class="['custom-button', disabled ? 'pointer-events-none' : '']"
+  >
+    {{ title }}
+  </button>
 </template>
 
 <script setup>
 defineProps({
   title: {
     type: String,
+  },
+  disabled: {
+    type: String,
+    default: false,
   },
 });
 </script>
@@ -29,5 +38,9 @@ defineProps({
 
 .custom-button:active {
   transform: scale(0.98);
+}
+
+.pointer-events-none {
+  pointer-events: none;
 }
 </style>

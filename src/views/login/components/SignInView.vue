@@ -54,7 +54,7 @@ const password = ref("");
 const signIn = async () => {
   try {
     await signInWithEmailAndPassword(auth, email.value, password.value);
-    console.log("Login");
+    router.push("/home");
   } catch (error) {
     console.log(error);
   }

@@ -8,18 +8,18 @@ export default defineConfig({
   plugins: [
     vue(),
     VitePWA({
-      registerType: "autoUpdate", // Vai registrar o service worker automaticamente
+      registerType: "autoUpdate",
       manifest: {
         name: "Sua Aplicação Vue 3",
         short_name: "VueApp",
         description: "Aplicação Vue 3 com Firebase como PWA",
-        theme_color: "#4DBA87", // cor da barra de status do dispositivo
-        background_color: "#ffffff", // cor de fundo quando a PWA for carregada
-        display: "standalone", // para comportamento como app nativo
-        start_url: "/", // URL inicial do app
+        theme_color: "#4DBA87",
+        background_color: "#ffffff",
+        display: "standalone",
+        start_url: "/",
         icons: [
           {
-            src: "icons/pwa-192x192.png", // caminho para o ícone
+            src: "icons/pwa-192x192.png",
             sizes: "192x192",
             type: "image/png",
           },

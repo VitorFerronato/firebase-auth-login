@@ -6,6 +6,7 @@ import SignUpView from "../views/login/components/SignUpView.vue";
 import PasswordRecoveryView from "../views/login/components/PasswordRecoveryView.vue";
 import HomeView from "../views/main/HomeView.vue";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+const auth = getAuth();
 
 const routes = [
   {
@@ -67,20 +68,17 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const auth = getAuth();
-  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  document.title = to.meta.title || "Firebase auth";
 
   onAuthStateChanged(auth, (user) => {
-    if (requiresAuth && !user) {
-      next("/login");
+    if (to.meta.requiresAuth && !user) {
+      next({ name: "sign-in" });
+    } else if (!to.meta.requiresAuth && user) {
+      next({ path: "/home" });
     } else {
       next();
     }
   });
-});
-
-router.afterEach((to, from) => {
-  document.title = to.meta.title || "Firebase login";
 });
 
 export default router;
